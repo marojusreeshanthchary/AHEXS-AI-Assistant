@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - AHEXS Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>AHEXS</h2>
+                <span class="brand-tagline">Holistic AI Platform</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="assistant.html" class="nav-link active">AI Assistant</a>
+                <a href="agriculture.html" class="nav-link">Agriculture</a>
+                <a href="health.html" class="nav-link">Health</a>
+                <a href="education.html" class="nav-link">Education</a>
+                <a href="about.html" class="nav-link">About Us</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Assistant Page -->
+    <main class="assistant-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>🤖 AHEXS AI Assistant</h1>
+                <p>Experience the power of integrated guidance across Agriculture, Health, and Education</p>
+            </div>
+
+            <div class="assistant-interface">
+                <div class="interface-header">
+                    <div class="ai-status">
+                        <div class="status-indicator active"></div>
+                        <span>AI Assistant Online</span>
+                    </div>
+                    <div class="interface-controls">
+                        <button class="control-btn" onclick="clearConversation()">🗑️ Clear</button>
+                        <button class="control-btn" onclick="loadExample()">📝 Example</button>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="welcome-message">
+                        <div class="ai-avatar">🤖</div>
+                        <div class="message-content">
+                            <h3>Welcome to AHEXS!</h3>
+                            <p>I'm your AI assistant specializing in integrated Agriculture, Health, and Education guidance. Share your complete situation, and I'll provide holistic solutions that connect all three domains.</p>
+                        </div>
+                    </div>
+
+                    <div id="conversation" class="conversation">
+                        <!-- Conversation messages will appear here -->
+                    </div>
+                </div>
+
+                <form id="assistantForm" class="input-form">
+                    <div class="form-section">
+                        <div class="input-row">
+                            <select id="role" class="form-input" required>
+                                <option value="">Your Role</option>
+                                <option value="Farmer">Farmer</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Healthcare Worker">Healthcare Worker</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Researcher">Researcher</option>
+                                <option value="Community Leader">Community Leader</option>
+                            </select>
+                            <input type="text" id="location" class="form-input" placeholder="Your Location" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="context-header">
+                            <h3>Integrated Context</h3>
+                            <div class="domain-tags">
+                                <span class="domain-tag agriculture">🌱 Agriculture</span>
+                                <span class="domain-tag health">🏥 Health</span>
+                                <span class="domain-tag education">📚 Education</span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="context" 
+                            class="context-input" 
+                            placeholder="Describe your complete situation covering agriculture, health, and education aspects. Our AI will identify connections and provide integrated guidance..."
+                            rows="6"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary large">
+                            <span class="btn-icon">🚀</span>
+                            Generate Holistic Guidance
+                        </button>
+                    </div>
+                </form>
+
+                <div id="loading" class="loading-container hidden">
+                    <div class="loading-animation">
+                        <div class="ai-thinking">
+                            <div class="thinking-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <p>Analyzing your integrated context across all domains...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="results" class="results-container hidden">
+                    <div class="results-header">
+                        <h3>Your AHEXS Guidance</h3>
+                        <div class="results-actions">
+                            <button class="action-btn" onclick="downloadResults()">📄 Download</button>
+                            <button class="action-btn" onclick="shareResults()">📤 Share</button>
+                            <button class="action-btn" onclick="copyResults()">📋 Copy</button>
+                        </div>
+                    </div>
+                    <div id="resultsContent" class="results-content">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
